@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan</title>
+    <style>
+    
+        .table,
+        #table {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .table-bordered th,
+        .table-bordered thead th,
+        .table-bordered td {
+            border: 1px solid #000;
+            padding: 20px
+            font-size: 13px;
+            background-color; #FF6E31;
+            
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+
+    <h2><center>LAPORAN DATA PETUGAS</center></h2>
+    <h3><center>LELANG ONLINE INDONESIA</center></h3>
+    <small><center>Jl. Pelita No.27 Sidomekar Semboro Jember Jawa Timur Indonesia</center></small>
+    <hr><br><br>
+
+	<h3><center>
+		DATA PETUGAS
+	</center></h3>
+
+    <table class="table table-bordered table-sm">
+        <tr>
+            <th width="40px">NO.</th>
+            <th width="120px">Nama Petugas</th>
+            <th width="120px">Username</th>
+            <th width="100px">No.telp</th>
+        </tr>
+        
+        
+        <?php $i = 1;
+        $CI =& get_instance();
+        $CI->load->model('Petugas_model');
+        foreach ($laporan as $lap) : ?>
+                <tr>
+                    <td><center><?= $i; ?></center></td>
+                    <td><center><?= $lap->nama_petugas; ?></center></td>
+                    <td><center><?= $lap->username; ?></center></td>
+                    <td><center><?= $lap->telp; ?></center></td>
+                </tr>
+        <?php $i++; endforeach; ?>
+    </table>
+    <br><br><br><br><br>
+        <table width="100%">
+            <tr>
+                <td></td>
+                <td width="300px">
+                    <p>JEMBER, <?= DATE('d-m-Y'); ?>
+                        <br>
+                        Administrator,
+                        <br><br><br><br>
+                        <b>_______________________________</b>
+                    </p>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+</body>
+</html>
